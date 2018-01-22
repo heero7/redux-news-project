@@ -9,7 +9,7 @@ const showLatest = ({ latest }) => {
             <Link to={`/news/${i.id}`} key={i.id} className="item">
                 <div
                     className="image_cover"
-                    style={{background: `url(/images/articles${i.img})`}}>
+                    style={{background: `url(/images/articles/${i.img})`}}>
                     <div className="description">
                         <span>{i.category}</span>
                         <div>{i.title}</div>

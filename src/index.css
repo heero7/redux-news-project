@@ -18,3 +18,38 @@ footer {
   font-size: 22px;
   padding: 10px 0;
 }
+
+/* Latest */
+.home-latest {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.home-latest .item .image_cover {
+  position: relative;
+  background-size: cover !important;
+  height: 300px;
+}
+
+.home-latest .item .description {
+  position: absolute;
+  bottom: 0;
+}
+
+.home-latest .item .description span {
+  background: #00bcd4;
+  padding: 10px;
+  display: inline-block;
+  text-transform: uppercase;
+  color: white;
+  font-size: 10px;
+}
+
+.home-latest .item .description div {
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+  background: rgba(53,53,53,.64);
+  width: 40%;
+}
