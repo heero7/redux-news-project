@@ -16,7 +16,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <LatestNews latest={this.props.articles}/>
+        <LatestNews latest={this.props.articles.latest}/>
       </div>
     );
   }
@@ -27,7 +27,6 @@ class Home extends Component {
     this function is needed
 */
 function mapStateToProps(state) {
-    console.log(state);
   return {
     articles: state.articles
   };
