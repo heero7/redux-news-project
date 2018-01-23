@@ -2,17 +2,20 @@ import React, { Component } from "react";
 
 // bring redux dependencies
 import { connect } from "react-redux";
-import { latestNews, otherNews } from "../actions"; // action for making network calls
+import { latestNews, otherNews, latestGallery } from "../actions"; // action for making network calls
 import { bindActionCreators } from "redux"; // needed since using actions
 
 // COMPONENTS
 import LatestNews from "../components/home/LatestNews";
 import OtherNews from "../components/home/OtherNews";
+import Gallery from "../components/home/Gallery";
 
 class Home extends Component {
   componentDidMount() {
+    // CALL action creators when the components rendered
     this.props.latestNews();
     this.props.otherNews();
+    this.props.latestGallery();
   }
 
   render() {
@@ -20,6 +23,7 @@ class Home extends Component {
       <div>
         <LatestNews latest={this.props.articles.latest}/>
         <OtherNews otherNews={this.props.articles.other}/>
+        <Gallery latestGallery={this.props.galleries.latestGallery}/>
       </div>
     );
   }
@@ -31,7 +35,8 @@ class Home extends Component {
 */
 function mapStateToProps(state) {
   return {
-    articles: state.articles
+    articles: state.articles,
+    galleries: state.galleries
   };
 }
 
@@ -40,7 +45,7 @@ function mapStateToProps(state) {
     must call this function
 */
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ latestNews, otherNews }, dispatch);
+  return bindActionCreators({ latestNews, otherNews, latestGallery }, dispatch);
 }
 
 // to connect everything.. need to setup connect

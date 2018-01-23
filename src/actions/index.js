@@ -25,3 +25,14 @@ export function otherNews() {
         payload: request
     }
 }
+
+export function latestGallery() {
+    const request = 
+    fetch(`${URL}/galleries?_order=desc&_limit=2`, {method: "GET"})
+    .then(res => res.json())
+
+    return {
+        type: "GET_LATEST_GALLERY",
+        payload: request
+    }
+}

@@ -30,7 +30,6 @@ const renderOtherNews = ({otherNews}) => {
 }
 
 const OtherNews = (props) => {
-    console.log(props);
     return (
         <div className="other-news">
             <h2>Other News</h2>
