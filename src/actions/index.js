@@ -13,3 +13,15 @@ export function latestNews() {
         payload: request
     }
 }
+
+export function otherNews() {
+
+    const request =
+    fetch(`${URL}/articles?_order=desc&_start=3&_end=10`, {method: "GET"})
+    .then(res => res.json())
+
+    return {
+        type: "GET_OTHER",
+        payload: request
+    }
+}

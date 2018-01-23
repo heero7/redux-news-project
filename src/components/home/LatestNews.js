@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 const showLatest = ({ latest }) => {
-  console.log(latest);
   if (latest) {
       return latest.map((i)=>{
         return (
