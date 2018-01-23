@@ -36,3 +36,24 @@ export function latestGallery() {
         payload: request
     }
 }
+
+// Actions for News
+
+export function selectedNews(id) {
+    const request = 
+    fetch(`${URL}/articles?id=${id}`, {method: "GET"})
+    .then(res => res.json())
+
+    return {
+        type: "GET_SELECTED_NEWS",
+        payload: request
+    }
+}
+
+// clear the state
+export function clearSelectedNews() {
+    return {
+        type: "CLEAR_SELECTED_NEWS",
+        payload: []
+    }
+}
