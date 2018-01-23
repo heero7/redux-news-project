@@ -3,6 +3,15 @@ import { connect } from 'react-redux';
 import { selectedGallery, clearSelectedGallery } from "../actions";
 import { bindActionCreators } from "redux";
 
+import Slider from "react-slick";
+
+const settings = {
+    dots: true,
+    infinite: true,
+    arrows: true,
+    speed: 500
+}
+
 class GalleryItem extends Component {
 
     componentDidMount(){
@@ -13,9 +22,39 @@ class GalleryItem extends Component {
         this.props.clearSelectedGallery();
     }
 
+    renderSlider = ({selected}) => {
+        if (selected) {
+            const gallery = selected[0];
+            return (
+                <div>
+                    <h3>The best of {gallery.artist}</h3>
+                    <Slider {...settings}>
+                        {gallery.images.map((item, index) => {
+                            return (
+                                <div key={index} className="slide-item">
+                                    <div>
+                                        <div className="image"
+                                            style={{background:`url(/images/galleries/${item.img})`}}>
+                                        </div>
+                                        <div className="description">
+                                            <span>{item.desc}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </Slider>
+                </div>
+            );
+        }
+    }
+
     render() {
+        const item = this.props.galleries;
         return (
-            <div>Gallery Item</div>
+            <div className="slide-item-wrap">
+                {this.renderSlider(item)}
+            </div>
         );
     }
 }
@@ -23,7 +62,7 @@ class GalleryItem extends Component {
 function mapStateToProps(state) {
     console.log(state);
     return {
-        gallery: state.gallery
+        galleries: state.galleries
     }
 }
 
