@@ -21,7 +21,6 @@ class News extends Component {
     }
 
     renderNews = ({selected}) => {
-        console.log(selected);
         if (selected) {
             return selected.map((item) => {
                 return (
@@ -53,6 +52,8 @@ class News extends Component {
                                 articleId={item.id}
                                 likes={item.likes[0]}
                                 dislikes={item.likes[1]}
+                                section="articles"
+                                type="HANDLE_LIKES_ARTICLE"
                             />
                         </div>
                     </div>
@@ -73,7 +74,6 @@ class News extends Component {
 // to link the redux state to 
 // the component use this function
 function mapStateToProps(state) {
-    console.log("State from News, " + state);
     return {
         articles: state.articles
     }
